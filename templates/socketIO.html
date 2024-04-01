@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SocketIO Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>SocketIO Example</h1>
+    <div id="message"></div>
+    <input type="text" id="input" placeholder="Type a message">
+    <button id="send">Send</button>
+
+    <script>
+        var socket = io.connect('http://localhost:5000');
+
+        socket.on('server_message', function(message) {
+            $('#message').text(message);
+        });
+
+        $('#send').click(function() {
+            var message = $('#input').val();
+            socket.emit('client_message', message);
+            $('#input').val('');
+        });
+    </script>
+</body>
+</html>

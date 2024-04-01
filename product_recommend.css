@@ -1,0 +1,7 @@
+/* 設定 body 的高度、置中內容及背景漸層 */
+body {
+    height: 50vh;
+    display: grid;
+    place-items: center;
+    background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgb(189, 216, 223)), color-stop(100%, rgba(204, 204, 198, 0.473)));
+  }

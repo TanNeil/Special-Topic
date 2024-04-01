@@ -1,0 +1,80 @@
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* ==========制作圆角表格=========== */
+.bordered {
+    border: solid #fff 1px;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #fff;
+}
+
+.bordered tr {
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.bordered .highlight,
+.bordered tr:hover {
+    background: #fbf8e9;/*表格行的悬浮状态效果*/ 
+}
+
+.bordered td, 
+.bordered th {
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+.bordered th {
+    /* 表格表头添加渐变背景色 */
+    background-color: #dce9f9;
+}
+
+/* 使用:first-child去除表格每行的第一个单元格的左边框 */
+.bordered td:first-child, 
+.bordered th:first-child {
+    border-left: none;
+	
+}
+
+.container {
+    width: auto;
+    height: auto;
+    overflow-y: scroll; /* 添加垂直滚动条 */
+    border: 0px solid #fff;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #1f5593;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #1f5593;
+}
+
+a:hover {
+    opacity: 0.7;
+	text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+#yee:hover {
+    opacity: 1.0;
+}

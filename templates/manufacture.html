@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>優惠任務</title>
+  <link rel="stylesheet" href="manufacture.css" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body >
+
+<div class="hero-anime">
+  <div class="navigation-wrap bg-light start-header start-style">
+		<div class="container" style="   overflow-y: hidden; height:85px ;vertical-align:middle; font-size: large;">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-light">
+            <a class="nav-link" href = "javascript:history.back()" style="font-size:xx-large; margin-left:-40px;" id='yee'>＜　</a>
+						<a class="navbar-brand" id='yee' style="margin-left:-18px;"href="http://localhost:3000/templates/home/index.html"><img src="https://memeprod.sgp1.digitaloceanspaces.com/user-resource/76a8ae090dcc5ebe91be5c80efd9cc9a.png">PI CAR</a>	
+						
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						
+						<div class="collapse navbar-collapse" id="navbarSupportedContent" >
+							<ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="home\index.html"  >首頁</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="http://127.0.0.1:5000">辨識商品</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="poop\index.php">排行/熱銷組合</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
+									<a class="nav-link"  href="task.html">每日任務</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+									<a class="nav-link" >辨識紀錄</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="map.php" >商品地圖</a>
+								</li>
+                
+                <form action="delete/deletemanufacture.php" method="post" onsubmit="return confirmDelete()">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <button  style="outline: none; border: none; background: none; cursor: pointer; color:brown; margin-top: 3px;">【清除紀錄】</button>
+                  </li>
+              </form>
+							
+              <script>
+                function confirmDelete() {
+                    var confirmDelete = confirm("確定刪除全部紀錄嗎?");
+                    return confirmDelete;
+                }
+            </script>
+            
+          </ul>
+						</div>
+						
+					</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+  <div class="task-manager">
+    <div class="upper-part">
+      <div class="actions">
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="page-content-header-bar">
+        <div class="header">辨識到的商品紀錄</div>
+        <div><lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ihkjwhbc.json"
+            style="width:50px; height: 50px;"  autoplay>
+          </lottie-player></div>
+      </div>
+
+      <div class="content-categories "></div>
+      <div class="page-contenter"style="overflow-x: hidden; height: 500px;">
+      <div id="cardGroup">
+        <div class="row row-cols-1 row-cols-md-3 g-4  justify-content-sm-center " id="product-cards"></div>
+        <!-- 商品卡片區域 -->
+      </div>
+      </div>
+      
+    </div>
+    <div class="center-content">
+      <div class="header" style="display: flex; align-items: center; margin-top: 20px;">
+        即將達成的組合優惠
+        <lottie-player src="https://lottie.host/0ceefc62-99ce-48f9-b0e2-0b7614cff013/Oo0HZNJXvk.json"
+        style="width:50px; height: 50px;"  autoplay> </lottie-player>
+      </div>
+      <div class="content-categories "></div>
+
+      <div class="container">
+        <div class="combine_upcoming" style="align-items: center;">
+
+          <div class="cardgroup1" id="cardgroup1">
+  
+  
+          </div>
+          
+      </div>
+     
+        
+       
+      </div>
+    </div>
+
+
+    <div class="right-bar">
+      <div class="header" style="display: flex; align-items: center; margin-top: 20px;">
+        達成的組合優惠
+        <lottie-player src="https://lottie.host/0ceefc62-99ce-48f9-b0e2-0b7614cff013/Oo0HZNJXvk.json"
+        style="width:50px; height: 50px;"  autoplay> </lottie-player>
+      </div>
+      <div class="content-categories "></div>
+
+      <div class="container">
+        <div class="combine_success" style="align-items: center;">
+
+          <div class="cardgroup" id="cardgroup">
+
+          </div>
+          
+          
+         
+        </div>
+
+       
+      </div>
+    </div>
+    <script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></script>
+    <script src='https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <script src="manufacture.js"></script> <!-- 引入 JavaScript 檔案 -->
+
+  </div>
+</body>
+
+</html>
+<!-- <ol class="list-group list-group">
+            <li class="list-group-item">任務1:巧克力牛奶</li>
+            <li class="list-group-item">任務2:柚香</li>
+            <li class="list-group-item">任務3:零食區商品一包</li>
+          </ol> -->
+
+          

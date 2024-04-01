@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>數據儲存為 JSON</title>
+</head>
+<body>
+    <h1>輸入數據</h1>
+    <form id="dataForm">
+        <label for="name">名稱：</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="age">年齡：</label>
+        <input type="number" id="age" name="age"><br>
+
+        <button type="button" id="saveButton">儲存為 JSON</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const saveButton = document.getElementById('saveButton');
+            saveButton.addEventListener('click', function () {
+                const name = document.getElementById('name').value;
+                const age = document.getElementById('age').value;
+
+                // 創建包含數據的對象
+                
+                let dataarray = [name,age]; 
+                console.log('JSONarray :', dataarray);
+                // 發送 POST 請求
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'save_data.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log('成功儲存 JSON');
+                    } else {
+                        console.error('儲存 JSON 時出錯');
+                    }
+                };
+                xhr.send(JSON.stringify(dataarray));
+            });
+        });
+    </script>
+</body>
+</html>

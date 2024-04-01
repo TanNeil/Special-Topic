@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>優惠任務</title>
+  <link rel="stylesheet" href="task.css" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+
+
+<body>
+  
+<div class="hero-anime">
+  <div class="navigation-wrap bg-light start-header start-style">
+		<div class="container" style="   overflow-y: hidden; height:85px ;vertical-align:middle; font-size:large;">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-light">
+            <a class="nav-link" href = "javascript:history.back()" style="font-size:xx-large; margin-left:-40px;" id='yee'>＜　</a>
+						<a class="navbar-brand" id='yee' style="margin-left:-18px;"href="http://localhost:3000/templates/home/index.html"><img src="https://memeprod.sgp1.digitaloceanspaces.com/user-resource/76a8ae090dcc5ebe91be5c80efd9cc9a.png">PI CAR</a>	
+						
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="http://localhost:3000/templates/home/index.html">首頁</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="http://127.0.0.1:5000">辨識商品</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
+									<a class="nav-link" href="poop\index.php">排行/熱銷組合</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+									<a class="nav-link" >每日任務</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="http://localhost:3000/templates/manufacture.html">辨識紀錄</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="http://localhost:3000/templates/map.php">商品地圖</a>
+								</li>
+                
+                <form action="delete/taskdelete.php" method="post" onsubmit="return confirmDelete()">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <button  style="outline: none; border: none; background: none; cursor: pointer; color:brown; margin-top: 3px;">【清除紀錄】</button>
+                </li>
+              </form>
+
+              <script>
+                function confirmDelete() {
+                    var confirmDelete = confirm("確定刪除全部紀錄嗎?");
+                    return confirmDelete;
+                }
+             </script>
+							
+            </ul>
+						</div>
+						
+					</nav>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <div class="task-manager">
+    <!-- left bar starts -->
+
+    <div class="upper-part">
+      <div class="actions">
+
+      </div>
+    </div>
+
+
+    <div class="page-content">
+      <div class="top-part"></div>
+      <div class="header" style="display: flex; align-items: center;">
+        <lottie-player src="https://lottie.host/05cd2a74-b73e-4bcd-92a8-74a2c7d3adfd/mVaHhLwYCy.json"
+        style="width:50px; height: 50px;"  autoplay> </lottie-player>
+        優惠進度
+
+        <button id="openmissionbutton">任務說明</button>
+
+        <div id="missiondialog">
+          <h1>如何取得優惠券?</h1>
+          <div class="dialog-categories "></div>
+          <br><p>• 任務總共有三種，要在三個不同的區域進行掃描。</p><br>
+          <p>• 從任務1、任務2、任務3查看需要掃描那些物品。</p><br>
+          <p>• 每完成一項，上方進度條就會往前。</p><br>
+          <p>• 點選任務可以查看內容以及需要掃描的品項。</p><br>
+          <p>• 三項完成後就會有優惠券，如果結帳時有購買任務內的品項就做折抵。</p>
+          <span id="closeDialogButton" class="close-button">x</span>
+      </div>
+
+    
+    <div id="myModal" class="modal">
+
+      <h1>如何使用?</h1>
+      <div class="dialog-categories "></div>
+      <p>恭喜完成任務！</p>
+      <p>• 要直接結帳使用的話，請勾選不繼續使用購物車還有填寫信箱傳送條碼作使用，後續就會清除整台購物車掃描紀錄。</p>
+      <p>• 想先寄送優惠，就勾選先寄送優惠券還有填寫信箱傳送條碼作使用。</p>
+      
+       
+      <!-- <p>輸入信箱。</p> -->
+       <form id="emailForm" action="email.php" method="post">
+        <label for="email">信箱：</label>
+        <input type="email" id="email" name="email" required><br><br>
+         <!-- 選項1: 寄送優惠券 -->
+         <input type="radio" id="sendCoupon" name="option" value="sendCoupon" required>
+         <label for="sendCoupon">先寄送優惠券</label><br>
+         <!-- 選項2: 不使用要結帳 -->
+         <input type="radio" id="checkout" name="option" value="checkout" required>
+         <label for="checkout">不繼續使用購物車</label><br><br>
+
+        <input type="submit" value="送出">
+      </form>
+
+      
+
+    
+      <span class="close">&times;</span>
+
+    </div>
+        
+    
+    
+    
+
+      
+
+      </div>
+      <div class="content-categories "></div>
+
+      <div class="container">
+        <ul class="progressbar" style="font-size: larger;">
+          <li>任務 1</li>
+          <li>任務 2</li>
+          <li>任務 3</li>
+        </ul>
+        <div class="task" style="font-size: larger;">
+          <div class="column ">
+            <div class="col ">
+              <div class="list-group   " id="list-tab" role="tablist">
+                <a class="list-group-item  list-group-item-action active bg-dark" id="list-home-list"
+                  data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home" style="display: flex; align-items: center;">
+                  <div id="successicon1">
+                    
+                  </div>
+                  任務1:巧克力牛奶
+                  
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list"
+                  href="#list-profile" role="tab" aria-controls="list-profile" style="display: flex; align-items: center;">
+                  <div id="successicon2">
+                    
+                  </div>
+                  任務2:吐司
+               
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"
+                  href="#list-messages" role="tab" aria-controls="list-messages" style="display: flex; align-items: center;">
+                  <div id="successicon3">
+                    
+                  </div>
+                  任務3:口渴拉
+                  
+                </a>
+              </div>
+            </div>
+            <div class="content-categories "></div>
+            <div class="content_header">
+              <h5>任務內容</h5>
+
+            </div>
+            <div class="content-categories "></div>
+            <div class="task_content" style="display: flex;">
+              <div class="col-8" >
+                <div class="tab-content" id="nav-tabContent" style="width: 300px;height: 60px;">
+          
+                  <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                    aria-labelledby="list-home-list">請去飲料區掃瞄一瓶巧克力牛奶吧!<br>
+                    <a href="http://localhost:3000/templates/poop/product.php?id=3" class ="custom-link">
+                      查看商品資訊</a></div>
+                  
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    尋找一條土司!<br>
+                    <a href="http://localhost:3000/templates/poop/product.php?id=9" class="custom-link" >
+                      查看更多資訊</a></div>
+                    
+                      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    飲料區商品隨意一種<br>
+                    <a href="http://localhost:3000/templates/poop/product.php?id=5" class="custom-link" >
+                      查看更多資訊</a></div>
+                
+                    </div>
+              </div>
+              <div id="couponbuttoncontent" style="margin-left: 200px; width: 140px; height: 60px;">
+                
+
+
+              </div>
+            </div>
+ 
+        
+
+          </div>
+
+        </div>
+      </div>
+      <!-- 打折優惠進度條結束 -->
+    </div>
+
+
+
+    <div class="right-bar">
+      <div class="top-part"></div>
+      <div class="header" style="display: flex; align-items: center;"> 
+        <lottie-player src="https://lottie.host/f9b65175-247e-4cdc-838b-16a36af39f45/0MfWRC6hQc.json"
+        style="width:50px; height: 50px;"  autoplay > </lottie-player>
+        獲得的優惠券</div>
+      <div class="content-categories"></div>
+      <div class="havecoupon" id="havecoupon">
+
+        <div class="todaysale" id="todaysale"></div>
+        <div class="breakfastsale" id="breakfastsale"></div>
+        <div id="endingbuttoncontent" style="margin-left: 265px; width: 140px; height: 60px;"></div>
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</body>
+<!-- 引入bodymovin函數庫 -->
+
+
+<script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></script>
+<script src='https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js'></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="task.js"></script>
+
+</html>
